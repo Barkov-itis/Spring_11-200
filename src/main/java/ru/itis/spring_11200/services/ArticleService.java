@@ -10,4 +10,5 @@ public interface ArticleService {
 
     List<ArticleDto> getByUser(Long id);
 
+    ArticleDto like(Long userId, Long articleId);
 }

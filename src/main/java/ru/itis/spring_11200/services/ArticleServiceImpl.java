@@ -41,4 +41,19 @@ public class ArticleServiceImpl implements ArticleService {
         List<Article> articleList = user.getCreatedArticles();
         return ArticleDto.articleList(articleList);
     }
+
+    @Override
+    public ArticleDto like(Long userId, Long articleId) {
+        User user = usersRepository.getOne(userId);
+        Article article = articleRepository.getOne(articleId);
+        if(articleRepository.existsByArticleIdAndLikesContaining(articleId, user)) {
+            article.getLikes().remove(user);
+        }
+        else {
+            article.getLikes().add(user);
+        }
+        articleRepository.save(article);
+        return ArticleDto.from(article);
+
+    }
 }

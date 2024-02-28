@@ -17,7 +17,7 @@ public class Article {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long article_id;
+    private Long articleId;
 
     private String name;
     private String type;
@@ -31,7 +31,7 @@ public class Article {
 
     @ManyToMany
     @JoinTable(name = "article_likes",
-                joinColumns = @JoinColumn(name = "article_id", referencedColumnName = "article_id"),
+                joinColumns = @JoinColumn(name = "articleId", referencedColumnName = "articleId"),
                 inverseJoinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
     private List<User> likes;
 }

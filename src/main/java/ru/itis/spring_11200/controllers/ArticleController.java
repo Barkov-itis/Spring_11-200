@@ -17,14 +17,22 @@ public class ArticleController {
 
     @PostMapping("/users/{user-id}/article")
     @ResponseBody
-    public ArticleDto addArticle(@PathVariable("user-id") Long id,
+    public String addArticle(@PathVariable("user-id") Long id,
                                  @RequestBody ArticleForm articleForm) {
-        return articleService.addArticle(id, articleForm);
+        articleService.addArticle(id, articleForm);
+        return "redirect:/users/{user-id}/article";
     }
 
     @GetMapping("/users/{user-id}/article")
     public String getArticlesOfUser(@PathVariable("user-id") Long id, Model model){
         model.addAttribute("articles", articleService.getByUser(id));
         return "article_page";
+    }
+
+    @PostMapping("/users/{user-id}/articles/{article-id}/like")
+    @ResponseBody
+    public Object like(@PathVariable("user-id") Long userId,
+                       @PathVariable("article-id") Long articleId) {
+        return articleService.like(userId, articleId);
     }
 }
