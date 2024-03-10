@@ -1,11 +1,12 @@
 package ru.itis.spring_11200.models;
 
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -21,10 +22,15 @@ public class User {
 
     private String email;
     private String password;
+    private String firstName;
+    private String lastName;
 
     @OneToMany(mappedBy = "author")
     private List<Article> createdArticles;
 
     @ManyToMany(mappedBy = "likes")
     private List<Article> likedArticeles;
+
+    private String confirmed;
+    private Role role;
 }

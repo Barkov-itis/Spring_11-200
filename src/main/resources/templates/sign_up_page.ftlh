@@ -11,6 +11,8 @@
 <form action="/signUp" method="post">
     <input name="email" type="email" placeholder="EMAIL">
     <input name="password" type="password" placeholder="PASSWORD">
+    <input name="firstname" type="text" placeholder="FIRSTNAME">
+    <input name="lastname" type="text" placeholder="LASTNAME">
     <input type="submit" value="SIGN UP">
 </form>
 </body>

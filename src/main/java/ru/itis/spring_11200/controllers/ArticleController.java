@@ -1,6 +1,5 @@
 package ru.itis.spring_11200.controllers;
 
-import jakarta.persistence.GeneratedValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
