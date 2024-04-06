@@ -57,7 +57,6 @@
             "date":date
         };
 
-        console.log(data)
 
         $.ajax({
             type: "POST",
