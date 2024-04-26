@@ -32,6 +32,11 @@ public class User {
     @ManyToMany(mappedBy = "likes")
     private List<Article> likedArticeles;
 
-    private String confirmed;
+    @Enumerated(value = EnumType.STRING)
+    private State state;
+
+    private String confirmCode;
+
+//    @Enumerated(value = EnumType.STRING)
     private Role role;
 }
